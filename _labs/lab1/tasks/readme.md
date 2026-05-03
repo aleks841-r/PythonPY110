@@ -60,6 +60,9 @@ https://api.weatherapi.com/v1/current.json?key=b1e619da98974045a4d192102231911&q
 
 ![2.png](pic_for_task/2.png)
 
+Брянск:
+https://api.weatherapi.com/v1/current.json?key=e1d0b6fc1c1c451fa88164230263004&q=53.27,34.32
+
 ##### 1.1.3 *Создание запросов через команду curl*
 
 Также можно использовать команду `curl` в консоли(`Terminal` PyCharm), чтобы получить информацию от сайта. Для корректной работы необходимо
@@ -70,6 +73,9 @@ curl "https://api.weatherapi.com/v1/current.json?key=b1e619da98974045a4d19210223
 ```
 
 ![3.png](pic_for_task/3.png)
+
+Брянск:
+curl "https://api.weatherapi.com/v1/current.json?key=e1d0b6fc1c1c451fa88164230263004&q=53.27,34.32"
 
 Если при выполнении появилась ошибка 
 ```cmd
