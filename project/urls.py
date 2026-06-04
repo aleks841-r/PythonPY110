@@ -54,6 +54,7 @@ urlpatterns = [
     path('dynamic_datetime/', dynamic_datetime_view),
     path('', include('app_weather.urls')),
     path('', include('app_store.urls')),
+    path('wishlist/', include('app_wishlist.urls'))
     #path('weather/', weather_view),
     #path('product/', product_view_json),
     #path('', shop_view),

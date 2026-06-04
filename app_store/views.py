@@ -32,11 +32,35 @@ def product_view_json(request):
         # В этот раз добавляем параметр safe=False, для корректного отображения списка в JSON
         return JsonResponse(data, safe=False, json_dumps_params={'ensure_ascii': False, 'indent': 4})
 
+#def shop_view(request):
+#    if request.method == "GET":
+#        with open('app_store/shop.html', encoding="utf-8") as f:
+#            data = f.read()  # Читаем HTML файл
+#        return HttpResponse(data)  # Отправляем HTML файл как ответ
+
 def shop_view(request):
     if request.method == "GET":
-        with open('app_store/shop.html', encoding="utf-8") as f:
-            data = f.read()  # Читаем HTML файл
-        return HttpResponse(data)  # Отправляем HTML файл как ответ
+        return render(request, 'app_store/shop.html', context={"products": DATABASE.values()})
+
+def cart_view(request):
+    if request.method == "GET":
+        username = 'Vasya'
+        data = view_in_cart(username)[username]  # Получаем корзину пользователя username
+
+        products = []  # Список продуктов
+        for product_id, quantity in data['products'].items():
+            product = DATABASE[product_id]  # Получаем информацию о продукте
+            # TODO в словарь product под ключом "quantity" запишите текущее значение количества товара в корзине
+            product["quantity"] = quantity # Реализуйте
+            # TODO в словарь product под ключом "price_total" посчитайте и запишите общую стоимость товара как произведение
+            #  его количества в корзине на цену с учетом скидки ('price_after'). Значение цены "price_total" приведите к формату
+            #  2 символов после запятой
+            product["price_total"] = round((quantity * product["price_after"]), 2)  # Реализуйте
+            # TODO добавьте словарь product в конец списка products
+            products.append(product)
+            # Реализуйте
+
+        return render(request, "app_store/cart.html", context={"products": products})
 
 def product_page_view(request, page):
     if request.method == "GET":
