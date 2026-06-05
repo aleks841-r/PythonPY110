@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app_datetime',
+    #'app_random',
     'app_weather',
     'app_store',
     'app_wishlist',
