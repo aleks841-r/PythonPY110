@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     #'app_random',
     'app_weather',
     'app_store',
+    'app_login',
     'app_wishlist',
+    'logic',
 ]
 
 MIDDLEWARE = [

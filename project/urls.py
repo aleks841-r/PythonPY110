@@ -13,4 +13,5 @@ urlpatterns = [
 
     # Главная страница и магазин
     path('', include('app_store.urls')),              # Оставляем пустой префикс для главной страницы
+    path('login/', include('app_login.urls')),
 ]
