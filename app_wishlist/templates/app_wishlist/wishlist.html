@@ -34,10 +34,10 @@
 						    <tbody>
 						      {% for product in products %}
 						      <tr class="text-center">
-						        <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
+						        <td class="product-remove"><a href="{% url 'app_wishlist:wishlist_remove' product.id %}"><span class="ion-ios-close"></span></a></td>
 
-						        <td class="image-prod"><a href="products/bell_pepper.html">
-									<div class="img" style="background-image:url({% static 'app_store/images/product-1.jpg' %});"></div>
+						        <td class="image-prod"><a href="{% url 'app_store:product_page_view' product.html %}">
+									<div class="img" style="background-image:url({% static product.url %});"></div>
 								</a></td>
 
 						        <td class="product-name">
@@ -45,7 +45,14 @@
 						        	<p>{{product.description}}</p>
 						        </td>
 
-						        <td class="price">{{product.price_after}}</td>
+						        <td class="price">
+						        {% if product.price_before > product.price_after %}
+						        <del>{{ product.price_before }}</del> {{ product.price_after }}
+						        {% else %}
+						        {{ product.price_after }}
+						        {% endif %}
+						        </td>
+
 						      </tr><!-- END TR-->
 						      {% endfor %}
 
