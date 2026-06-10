@@ -5,5 +5,5 @@ from .views import wishlist_view
 app_name = 'app_wishlist'
 
 urlpatterns = [
-    path('', wishlist_view, name=app_name),  # TODO Зарегистрируйте обработчик
+    path('', wishlist_view, name='wishlist_view'),  # TODO Зарегистрируйте обработчик
 ]

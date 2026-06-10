@@ -9,7 +9,7 @@ urlpatterns = [
     #path('datetime/', include('app_datetime.urls')),  # Перенесли datetime и dynamic_datetime сюда
     #path('random/', include('app_random.urls')),      # Создали отдельное приложение под random
     path('weather/', include('app_weather.urls')),    # Добавили префикс 'weather/' для чистоты URL
-    path('wishlist/', include('app_wishlist.urls')),
+    path('wishlist/', include('app_wishlist.urls')), # TODO Зарегистрируйте маршруты приложения так чтобы обработчик избранного обрабатывался по пути wishlist/
 
     # Главная страница и магазин
     path('', include('app_store.urls')),              # Оставляем пустой префикс для главной страницы
